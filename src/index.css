@@ -1,6 +1,6 @@
-body{
-  background-color: #BCC4DB;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+body {
+  background-color: #bcc4db;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
 
@@ -14,9 +14,8 @@ button {
 
 img {
   height: 175px;
-  border: #7880B5 solid 5px;
+  border: #7880b5 solid 5px;
   margin: 10px;
-  
 }
 
 .article-card {
@@ -32,21 +31,17 @@ img {
   text-align: center;
 }
 
-.article-details{
+.article-details {
   display: flex;
   margin: 10px;
   text-align: left;
 }
 
-.article-body{
+.article-body {
   text-align: justify;
 }
 
-
-
-.like-image{
+.like-image {
   margin: 2px;
-  height:50px;
+  height: 50px;
 }
-
-

@@ -4,6 +4,7 @@ import Header from "./Components.jsx/Header";
 import Home from "./Components.jsx/Home";
 import Nav from "./Components.jsx/Nav";
 import ArticleById from "./Components.jsx/ArticleById";
+import ArticleComments from "./Components.jsx/ArticleComments";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/article/:article_id" element={<ArticleById />} />
+        <Route path="/article/:article_id/comments" element={<ArticleComments />} />
       </Routes>
     </>
   );
