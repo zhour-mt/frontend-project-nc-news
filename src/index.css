@@ -34,3 +34,7 @@ img {
   display: flex;
   margin: 5px;
 }
+
+.article-body{
+  text-align: justify;
+}
