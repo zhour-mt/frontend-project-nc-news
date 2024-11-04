@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
-import ArticleCard from "./ArticleCard";
 import { Link } from "react-router-dom";
+import ArticleCard from "./ArticleCard";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
