@@ -10,4 +10,10 @@ const fetchArticles = () => {
   });
 };
 
-export { fetchArticles };
+const fetchArticleById = (article_id) => {
+  return api.get(`/articles/${article_id}`).then((response) => {
+    return response.data.article[0]
+  })
+}
+
+export { fetchArticles, fetchArticleById };
