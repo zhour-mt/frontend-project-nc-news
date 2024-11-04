@@ -16,4 +16,10 @@ const fetchArticleById = (article_id) => {
   })
 }
 
-export { fetchArticles, fetchArticleById };
+const fetchArticleComments = (article_id) => {
+  return api.get(`/articles/${article_id}/comments`).then((response) => {
+    return response.data.comments
+  })
+}
+
+export { fetchArticles, fetchArticleById, fetchArticleComments };
