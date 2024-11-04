@@ -37,6 +37,7 @@ export default function ArticleById() {
         <h3>{article.title}</h3>
         <ArticleCard article={article} key={article.article_id} />
         <p className="article-body">{article.body}</p>
+        <button className="like-button"><img src="https://img.freepik.com/free-vector/like-button-thumbs-up-cartoon-style_78370-1159.jpg" className="like-image"></img></button>
       </div>
     </>
   );

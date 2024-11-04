@@ -4,8 +4,11 @@ export default function ArticleCard({ article }) {
       <div className="article-details">
         <img src={article.article_img_url} />
         <div>
-          <h4>By: {article.author}</h4>
-          <h4>Topic: {article.topic}</h4>
+          <p>By: {article.author}</p>
+          <p>Topic: {article.topic}</p>
+          <p>Date created: {article.created_at}</p>
+          <p>Votes: {article.votes}</p>
+          <p>Comment count: {article.comment_count}</p>
         </div>
       </div>
     </div>

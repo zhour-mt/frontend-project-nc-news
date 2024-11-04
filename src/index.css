@@ -13,8 +13,10 @@ button {
 }
 
 img {
-  height: 100px;
-  border: #7880B5 solid 5px,
+  height: 175px;
+  border: #7880B5 solid 5px;
+  margin: 10px;
+  
 }
 
 .article-card {
@@ -32,9 +34,19 @@ img {
 
 .article-details{
   display: flex;
-  margin: 5px;
+  margin: 10px;
+  text-align: left;
 }
 
 .article-body{
   text-align: justify;
 }
+
+
+
+.like-image{
+  margin: 2px;
+  height:50px;
+}
+
+
