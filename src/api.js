@@ -12,14 +12,31 @@ const fetchArticles = () => {
 
 const fetchArticleById = (article_id) => {
   return api.get(`/articles/${article_id}`).then((response) => {
-    return response.data.article[0]
-  })
-}
+    return response.data.article[0];
+  });
+};
 
 const fetchArticleComments = (article_id) => {
   return api.get(`/articles/${article_id}/comments`).then((response) => {
-    return response.data.comments
-  })
-}
+    return response.data.comments;
+  });
+};
 
-export { fetchArticles, fetchArticleById, fetchArticleComments };
+const updatedArticleVotes = (article_id, newVote) => {
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: newVote })
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export {
+  fetchArticles,
+  fetchArticleById,
+  fetchArticleComments,
+  updatedArticleVotes,
+};

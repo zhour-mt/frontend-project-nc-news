@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import ArticleById from "./components/ArticleById";
 import ArticleComments from "./components/ArticleComments";
+import VoteAdder from "./components/VoteAdder";
 
 function App() {
   return (

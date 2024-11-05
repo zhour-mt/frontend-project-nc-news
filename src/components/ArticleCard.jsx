@@ -6,8 +6,8 @@ export default function ArticleCard({ article }) {
         <div>
           <p>By: {article.author}</p>
           <p>Topic: {article.topic}</p>
-          <p>Date created: {article.created_at}</p>
           <p>Votes: {article.votes}</p>
+          <p>Date created: {article.created_at}</p>
           <p>Comment count: {article.comment_count}</p>
         </div>
       </div>
