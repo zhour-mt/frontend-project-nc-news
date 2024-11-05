@@ -4,6 +4,7 @@ import { fetchArticleById, fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 import ArticleComments from "./ArticleComments";
 import VoteAdder from "./VoteAdder";
+import CommentAdder from "./CommentAdder";
 
 export default function ArticleById() {
   const [article, setArticle] = useState({});

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { updatedArticleVotes } from "../api";
+import { updateArticleVotes } from "../api";
 
 export default function VoteAdder({ article, setArticle }) {
   const [hasVoted, setHasVoted] = useState(false);
@@ -8,7 +8,7 @@ export default function VoteAdder({ article, setArticle }) {
   const handleClick = () => {
     if (!hasVoted) {
       setHasVoted(true);
-      updatedArticleVotes(article.article_id, 1)
+      updateArticleVotes(article.article_id, 1)
         .then(() => {
           const updatedArticle = { ...article, votes: article.votes + 1 };
           setArticle(updatedArticle);
@@ -29,7 +29,6 @@ export default function VoteAdder({ article, setArticle }) {
     const storedArticle = JSON.parse(
       localStorage.getItem(`article_${article.article_id}`)
     );
-    console.log(storedArticle);
     if (storedArticle) {
       setArticle(storedArticle);
     }
@@ -48,3 +47,7 @@ export default function VoteAdder({ article, setArticle }) {
     </button>
   );
 }
+
+
+// optimistic rendering
+// button to disable

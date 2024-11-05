@@ -32,16 +32,16 @@ export default function Articles() {
   return (
     <>
       <h3 className="articles-header">Here are all the available articles:</h3>
-      <ol>
+      <ul>
         {articles.map((article) => (
-          <div className="article-card">
+          <li key={article.article_id} className="article-card">
             <Link to={`/article/${article.article_id}`} article={article}>
               <h3>{article.title}</h3>
             </Link>
             <ArticleCard article={article} key={article.article_id} />
-          </div>
+          </li>
         ))}
-      </ol>
+      </ul>
     </>
   );
 }
