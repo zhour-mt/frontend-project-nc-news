@@ -19,7 +19,7 @@ export default function CommentAdder({
 
   const handleSubmit= (event) => {
     event.preventDefault()
-    postComment(article.article_id, comment).then(() => {})
+    postComment(article.article_id, comment)
     setIsCommentPosted(true)
     setComment({ author: "jessjelly", body: "" })
     setArticleComments([...articleComments, comment])

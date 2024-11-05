@@ -25,7 +25,7 @@ export default function ArticleById() {
         setError(err);
         setIsLoading(false);
       });
-  }, [article_id]);
+  }, [article_id, setArticle]);
 
   if (isLoading) {
     return <p>Loading article...</p>;
