@@ -22,21 +22,28 @@ const fetchArticleComments = (article_id) => {
   });
 };
 
-const updatedArticleVotes = (article_id, newVote) => {
+const updateArticleVotes = (article_id, newVote) => {
   return api
     .patch(`/articles/${article_id}`, { inc_votes: newVote })
     .then((response) => {
-      console.log(response);
       return response;
     })
-    .catch((err) => {
-      console.log(err);
-    });
 };
+
+const postComment = (article_id, newComment) => {
+  return api.post(`/articles/${article_id}/comments`, newComment).then((response) => {
+    console.log(response)
+    console.log("comment posted")
+    return response.data.comment
+  })
+}
+
+
 
 export {
   fetchArticles,
   fetchArticleById,
   fetchArticleComments,
-  updatedArticleVotes,
+  updateArticleVotes,
+  postComment
 };
