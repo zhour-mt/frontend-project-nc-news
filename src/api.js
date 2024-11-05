@@ -26,14 +26,12 @@ const updateArticleVotes = (article_id, newVote) => {
   return api
     .patch(`/articles/${article_id}`, { inc_votes: newVote })
     .then((response) => {
-      return response;
+      return response.data.updatedArticle;
     })
 };
 
 const postComment = (article_id, newComment) => {
   return api.post(`/articles/${article_id}/comments`, newComment).then((response) => {
-    console.log(response)
-    console.log("comment posted")
     return response.data.comment
   })
 }

@@ -2,6 +2,7 @@ body {
   background-color: #bcc4db;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
+  padding: 10px;
 }
 
 h1 {
@@ -39,6 +40,7 @@ img {
 
 .article-body {
   text-align: justify;
+  padding: 10px;
 }
 
 .like-image {
