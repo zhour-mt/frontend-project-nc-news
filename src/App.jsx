@@ -7,6 +7,7 @@ import ArticleById from "./components/ArticleById";
 import ArticleComments from "./components/ArticleComments";
 import Topics from "./components/Topics";
 import ArticlesByTopic from "./components/ArticlesByTopic";
+import ErrorHandling from "./components/ErrorHandling";
 
 function App() {
   return (

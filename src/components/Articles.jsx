@@ -3,6 +3,7 @@ import { fetchArticles } from "../api";
 import { Link } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 import ArticleSorter from "./ArticleSorter";
+import ErrorHandling from "./ErrorHandling";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -34,6 +35,7 @@ export default function Articles() {
 
   return (
     <>
+    {error && <ErrorHandling error={error}/>}
       <h3 className="articles-header">Here are all the available articles:</h3>
       <ArticleSorter setArticleSortQuery={setArticleSortQuery}/>
       <ul>

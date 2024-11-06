@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import CommentAdder from "./CommentAdder";
 import CommentDeleter from "./CommentDeleter";
+import ErrorHandling from "./ErrorHandling";
 
 export default function ArticleComments({ article }) {
   const [articleComments, setArticleComments] = useState([]);
@@ -22,7 +23,7 @@ export default function ArticleComments({ article }) {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err);
+        setError(err.response);
         setIsLoading(false);
       });
   }, [article_id]);
@@ -30,34 +31,38 @@ export default function ArticleComments({ article }) {
   if (isLoading) {
     return <p>Loading articles...</p>;
   }
-  if (error) {
-    return <p>{error}</p>;
-  }
+  
 
   return (
-    <div>
-      <CommentAdder
-        article={article}
-        articleComments={articleComments}
-        setArticleComments={setArticleComments}
-      />
-      {isCommentDeleted && <p>Comment deleted!</p>}
-      <ul>
-        {articleComments.map((comment) => (
-          <li key={comment.comment_id} className="comment-card">
-            <>
-              <CommentCard comment={comment} />
-              <CommentDeleter
-                comment={comment}
-                articleComments={articleComments}
-                setArticleComments={setArticleComments}
-                isCommentDeleted={isCommentDeleted}
-                setIsCommentDeleted={setIsCommentDeleted}
-              />
-            </>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {error ? (
+        <ErrorHandling error={error} />
+      ) : (
+        <div>
+          <CommentAdder
+            article={article}
+            articleComments={articleComments}
+            setArticleComments={setArticleComments}
+          />
+          {isCommentDeleted && <p>Comment deleted!</p>}
+          <ul>
+            {articleComments.map((comment) => (
+              <li key={comment.comment_id} className="comment-card">
+                <>
+                  <CommentCard comment={comment} />
+                  <CommentDeleter
+                    comment={comment}
+                    articleComments={articleComments}
+                    setArticleComments={setArticleComments}
+                    isCommentDeleted={isCommentDeleted}
+                    setIsCommentDeleted={setIsCommentDeleted}
+                  />
+                </>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
   );
 }

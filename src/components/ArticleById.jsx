@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-import { fetchArticleById, fetchArticles } from "../api";
+import { useParams, useSearchParams } from "react-router-dom";
+import { fetchArticleById } from "../api";
 import ArticleCard from "./ArticleCard";
 import ArticleComments from "./ArticleComments";
 import VoteAdder from "./VoteAdder";
-import CommentAdder from "./CommentAdder";
+import ErrorHandling from "./ErrorHandling";
 
 export default function ArticleById() {
   const [article, setArticle] = useState({});
@@ -22,7 +22,7 @@ export default function ArticleById() {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err);
+        setError(err.response);
         setIsLoading(false);
       });
   }, [article_id, setArticle]);
@@ -30,21 +30,22 @@ export default function ArticleById() {
   if (isLoading) {
     return <p>Loading article...</p>;
   }
-  if (error) {
-    return <p>{error}</p>;
-  }
-
+ 
   return (
     <>
-      <div className="article-card">
-        <h3>{article.title}</h3>
-        <ArticleCard article={article} key={article.article_id} />
-        <p className="article-body">{article.body}</p>
-        <p>
-          Vote: <VoteAdder article={article} setArticle={setArticle} />
-        </p>
-        <ArticleComments article={article} />
-      </div>
+      {error ? (
+        <ErrorHandling error={error} />
+      ) : (
+        <div className="article-card">
+          <h3>{article.title}</h3>
+          <ArticleCard article={article} key={article.article_id} />
+          <p className="article-body">{article.body}</p>
+          <p>
+            Vote: <VoteAdder article={article} setArticle={setArticle} />
+          </p>
+          <ArticleComments article={article} />
+        </div>
+      )}
     </>
   );
 }
