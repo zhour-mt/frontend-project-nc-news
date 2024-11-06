@@ -9,6 +9,10 @@ export default function Header() {
       <Link to="/articles">
         <button>Articles 📰 </button>
       </Link>
+      <Link to="/topics">
+        <button>Topics 📋</button>
+      </Link>
+
       <h1>NC News</h1>
     </div>
   );

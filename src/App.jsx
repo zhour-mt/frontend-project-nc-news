@@ -5,7 +5,8 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import ArticleById from "./components/ArticleById";
 import ArticleComments from "./components/ArticleComments";
-import VoteAdder from "./components/VoteAdder";
+import Topics from "./components/Topics";
+import ArticlesByTopic from "./components/ArticlesByTopic";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           path="/article/:article_id/comments"
           element={<ArticleComments />}
         />
+        <Route path="/topics" element={<Topics />} />
+        <Route path="/topics/:topic_name/articles" element={<ArticlesByTopic />} />
       </Routes>
     </>
   );

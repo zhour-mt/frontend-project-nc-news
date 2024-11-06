@@ -27,28 +27,35 @@ const updateArticleVotes = (article_id, newVote) => {
     .patch(`/articles/${article_id}`, { inc_votes: newVote })
     .then((response) => {
       return response.data.updatedArticle;
-    })
+    });
 };
 
 const postComment = (article_id, newComment) => {
-  return api.post(`/articles/${article_id}/comments`, newComment).then((response) => {
-    return response.data.comment
-  })
-}
+  return api
+    .post(`/articles/${article_id}/comments`, newComment)
+    .then((response) => {
+      return response.data.comment;
+    });
+};
 
 const deleteComment = (comment_id) => {
   return api.delete(`/comments/${comment_id}`).then((response) => {
-    return response.data
-  })
-}
+    return response.data;
+  });
+};
 
-
+const fetchTopics = () => {
+  return api.get(`topics`).then((response) => {
+    return response.data.topics
+  });
+};
 
 export {
   fetchArticles,
   fetchArticleById,
   fetchArticleComments,
   updateArticleVotes,
-  postComment, 
-  deleteComment
+  postComment,
+  deleteComment,
+  fetchTopics,
 };
