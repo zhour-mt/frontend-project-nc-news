@@ -36,6 +36,12 @@ const postComment = (article_id, newComment) => {
   })
 }
 
+const deleteComment = (comment_id) => {
+  return api.delete(`/comments/${comment_id}`).then((response) => {
+    return response.data
+  })
+}
+
 
 
 export {
@@ -43,5 +49,6 @@ export {
   fetchArticleById,
   fetchArticleComments,
   updateArticleVotes,
-  postComment
+  postComment, 
+  deleteComment
 };
