@@ -35,7 +35,7 @@ export default function CommentAdder({
           onChange={handleChange}
           value={comment.body}
         ></input>
-        <button onClick={handleSubmit}>Post comment</button>
+        <button onClick={handleSubmit} disabled={!comment.body}>Post comment</button>
         {isCommentPosted && <p>Comment posted!</p>}
       </form>
     </>
