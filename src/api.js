@@ -4,8 +4,8 @@ const api = axios.create({
   baseURL: "https://lets-read-zbam.onrender.com/api",
 });
 
-const fetchArticles = () => {
-  return api.get("/articles").then((response) => {
+const fetchArticles = (sortQuery) => {
+  return api.get(`/articles?limit=100${sortQuery}`).then((response) => {
     return response.data.articles;
   });
 };

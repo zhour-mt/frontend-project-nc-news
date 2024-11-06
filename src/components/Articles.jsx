@@ -2,16 +2,19 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import { Link } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
+import ArticleSorter from "./ArticleSorter";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const [articleSortQuery, setArticleSortQuery] = useState("")
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchArticles()
+    fetchArticles(articleSortQuery)
       .then((articlesData) => {
         setArticles(articlesData);
         setIsLoading(false);
@@ -20,7 +23,7 @@ export default function Articles() {
         setError(err);
         setIsLoading(false);
       });
-  }, []);
+  }, [articleSortQuery]);
 
   if (isLoading) {
     return <p>Loading articles...</p>;
@@ -32,6 +35,7 @@ export default function Articles() {
   return (
     <>
       <h3 className="articles-header">Here are all the available articles:</h3>
+      <ArticleSorter setArticleSortQuery={setArticleSortQuery}/>
       <ul>
         {articles.map((article) => (
           <li key={article.article_id} className="article-card">
